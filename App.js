@@ -3,6 +3,7 @@ import { View } from "react-native";
 import firebase from "firebase"; //should be above anything else we import
 import { Header, Button, Spinner, CardSection } from "./src/components/common";
 import LoginForm from "./src/components/LoginForm";
+import Data from "./src/components/Data";
 
 class App extends Component {
   state = { loggedIn: null };
@@ -30,11 +31,16 @@ class App extends Component {
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
-        return (
-          <CardSection>
-            <Button onPress={() => firebase.auth().signOut()}>Log Out</Button>
-          </CardSection>
-        );
+        return <View>
+            <CardSection>
+              <Button onPress={() => firebase.auth().signOut()}>
+                Log Out
+              </Button>
+            </CardSection>
+            <CardSection>
+              {/* <Data /> */}
+            </CardSection>
+          </View>;
       case false:
         return <LoginForm />;
       default:
@@ -43,12 +49,12 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Header headerText="Authentication" />
+    return <View>
+        {/* <Header headerText="Authentication" /> */}
+        <Header headerText="T H I S  I S   H A R D . . ." />
         {this.renderContent()}
-      </View>
-    );
+        <Data />
+      </View>;
   }
 }
 
