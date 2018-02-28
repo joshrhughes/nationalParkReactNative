@@ -37,9 +37,9 @@ class App extends Component {
                 Log Out
               </Button>
             </CardSection>
-            <CardSection>
-              {/* <Data /> */}
-            </CardSection>
+            {/* <CardSection>
+              <Data />
+            </CardSection> */}
           </View>;
       case false:
         return <LoginForm />;
@@ -53,8 +53,11 @@ class App extends Component {
         {/* <Header headerText="Authentication" /> */}
         <Header headerText="T H I S  I S   H A R D . . ." />
         {this.renderContent()}
-        <Data />
-      </View>;
+        <CardSection>
+          <Data />
+        </CardSection>
+      </View>
+      
   }
 }
 

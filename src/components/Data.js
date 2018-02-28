@@ -20,16 +20,20 @@ class Data extends Component {
 
       console.log(name);
 
-      <Text> {name} </Text>;
+      {/* <Text> {name} </Text>; */}
     }
   }
 
   renderAlbums() {
-    return this.state.parks.map(name => <Text>test</Text>);
+   // console.log(this.state.parks);
+     return this.state.parks.map(potato => {
+    console.log(potato.name);
+    return (<Text key={potato.name} >{potato.name}</Text>)
+     });
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     // this.renderParks();
     return (
       <View>
