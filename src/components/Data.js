@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import axios from "axios";
 
 class Data extends Component {
@@ -27,19 +27,29 @@ class Data extends Component {
   renderAlbums() {
    // console.log(this.state.parks);
      return this.state.parks.map(potato => {
-    console.log(potato.name);
-    return (<Text key={potato.name} >{potato.name}</Text>)
+    // console.log(potato.name);
+    return (
+      <View key={potato.name}>
+        <Text key={potato.name} >
+          {potato.name}
+        </Text>
+        <Text key={potato.fullName}>
+          {potato.fullName}
+        </Text>
+      </View>
+    )
      });
+     
   }
 
   render() {
     // console.log(this.state);
     // this.renderParks();
     return (
-      <View>
+      <ScrollView>
         {/* {this.renderParks()} */}
         {this.renderAlbums()}
-      </View>
+      </ScrollView>
     );
   }
 }
